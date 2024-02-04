@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input {
+    @apply px-3 py-2 w-full border outline-none rounded font-normal
+}
+
+.input:focus {
+    @apply border-blue-500
+}
+
+.label {
+    @apply font-medium
+}
+
+.button {
+    @apply px-3 py-2 font-medium inline-block rounded text-center
+}
+
+.button-blue {
+    @apply bg-blue-500 text-white
+}
+
+.button-blue:hover {
+    @apply hover:bg-blue-600
+}
+
+.button-red {
+    @apply bg-red-500 text-white
+}
+
+.button-red:hover {
+    @apply hover:bg-red-600
+}
+
+.button-cyan {
+    @apply bg-cyan-500 text-white
+}
+
+.button-cyan:hover {
+    @apply hover:bg-cyan-600
+}
+
+.button-green {
+    @apply bg-green-500 text-white
+}
+
+.button-green:hover {
+    @apply hover:bg-green-600
+}
+
+.alert {
+    @apply px-3 py-2 w-full block rounded font-medium
+}
+
+.alert-red {
+    @apply bg-red-200 text-red-700
+}
+
+.alert-green {
+    @apply bg-green-200 text-green-700
+}
+
+.jumbotron {
+    @apply px-4 py-24 bg-gradient-to-r from-blue-500 to-purple-500
+}

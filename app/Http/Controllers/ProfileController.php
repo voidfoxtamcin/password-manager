@@ -34,6 +34,21 @@ class ProfileController extends Controller
         $user->password = $request->password_baru;
         $user->update();
 
-        return redirect()->route('profile')->with('sukses', 'Password berhasil diganti');
+        return redirect()->route('profile')->with('success', __('validation.custom.success.update', ['attribute' => 'Password']));
+    }
+
+    public function ubah_profile(Request $request)
+    {
+        $request->validate([
+            'fname' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $user = User::all()->find(Auth::user()->id);
+        $user->name = $request->fname;
+        $user->email = $request->email;
+        $user->update();
+
+        return redirect()->route('profile')->with('success', __('validation.custom.success.update', ['attribute' => 'Profile']));
     }
 }

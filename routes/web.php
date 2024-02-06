@@ -90,6 +90,8 @@ Route::prefix('profile')->group(function () {
             'user' => Auth::user()
         ]);
     })->name('profile.ubah_profile_view');
+
+    Route::post('/change-profile', [ProfileController::class, 'ubah_profile'])->name('profile.ubah_profile');
 })->middleware('auth');
 
 Route::get('lang/{locale}', [LocalizationController::class, 'set_lang'])->name('lang');

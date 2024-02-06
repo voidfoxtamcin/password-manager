@@ -11,6 +11,13 @@
 
 <div class="px-4 py-12">
     <div class="container mx-auto">
+
+        @if (session()->has('success'))
+        <div class="alert alert-green">
+            {{ session('success') }}
+        </div>
+        @endif
+
         <div class="flex flex-col divide-y-2">
             <div class="p-4">
                 <p class="font-normal text-lg">{{__('public.name')}}</p>

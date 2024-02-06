@@ -11,22 +11,22 @@
 
 <body>
 
-    <div class="min-h-screen grid grid-cols-2">
+    <div class="min-h-screen grid lg:grid-cols-2">
         <div class="bg-blue-500 flex justify-center items-center">
-            <div class="text-white text-center max-w-2xl">
-                <p class="text-4xl font-medium">@lang('public.welcomeTo')</p>
-                <p class="text-6xl font-bold">Password Manager</p>
+            <div class="text-white text-center max-w-2xl px-4">
+                <p class="text-2xl lg:text-3xl font-medium">@lang('public.welcomeTo')</p>
+                <p class="text-3xl lg:text-4xl font-bold">Password Manager</p>
 
                 <hr class="border border-white my-8">
 
-                <p class="text-2xl font-medium">@lang('public.appDesc')</p>
+                <p class="text-xl font-medium">@lang('public.appDesc')</p>
 
                 <div class="grid mt-8">
 
                     @if ($user > 0)
-                    <a href="{{ route('login') }}" class="p-4 border text-blue-500 bg-white inline-block font-medium text-2xl">Login!</a>
+                    <a href="{{ route('login') }}" class="px-4 py-3 border text-blue-500 bg-white inline-block font-medium text-xl">Login!</a>
                     @else
-                    <a href="{{ route('register') }}" class="p-4 border text-blue-500 bg-white inline-block font-medium text-2xl">Ayo buat akun
+                    <a href="{{ route('register') }}" class="px-4 py-3 border text-blue-500 bg-white inline-block font-medium text-xl">Ayo buat akun
                         dulu!</a>
                     @endif
                 </div>
@@ -36,27 +36,12 @@
                 @endauth
             </div>
         </div>
-        <div class="relative">
+        <div class="relative hidden lg:block">
             <p class="absolute text-white bottom-5 right-5 z-[1]">Photo by <a href="https://unsplash.com/@kmuza?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" class="underline">Carlos Muza</a> on <a href="https://unsplash.com/photos/laptop-computer-on-glass-top-table-hpjSkU2UYSU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" class="underline">Unsplash</a>
             </p>
             <img src="{{ asset('img/bg1.jpg') }}" class="object-cover w-full h-full" alt="">
         </div>
     </div>
-
-    <!-- <div class="min-h-screen bg-blue-500 flex justify-center items-center">
-        <div class="text-white text-center max-w-2xl">
-            <p class="text-4xl font-medium">Selamat Datang di</p>
-            <p class="text-6xl font-bold">Password Manager</p>
-
-            <hr class="border border-white my-8">
-
-            <p class="text-2xl font-medium">Tempat me-manage password dari puluhan akun yang anda telah buat, sehingga anda tidak kesulitan untuk mengingat seluruh password anda.</p>
-
-            <div class="grid mt-8">
-                <a href="{{ route('register') }}" class="p-4 border text-blue-500 bg-white inline-block font-medium text-2xl">Ayo buat akun dulu!</a>
-            </div>
-        </div>
-    </div> -->
 
     <div class="fixed bottom-10 right-10 bg-blue-400 w-16 h-16 flex justify-center items-center rounded-full cursor-pointer" id="lang-dropdown">
         <i class="fa-solid fa-globe text-white fa-fw fa-2x inline-block"></i>

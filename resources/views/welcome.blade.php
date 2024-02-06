@@ -12,7 +12,7 @@
 <body>
 
     <div class="min-h-screen grid lg:grid-cols-2">
-        <div class="bg-blue-500 flex justify-center items-center">
+        <div class="bg-gradient-to-br from-blue-500 to-purple-500 flex justify-center items-center">
             <div class="text-white text-center max-w-2xl px-4">
                 <p class="text-2xl lg:text-3xl font-medium">@lang('public.welcomeTo')</p>
                 <p class="text-3xl lg:text-4xl font-bold">Password Manager</p>

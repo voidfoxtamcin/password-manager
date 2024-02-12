@@ -49,7 +49,7 @@ Route::prefix('admin')->group(function () {
         return view('admin.index', [
             'title' => 'Password Manager | Admin Panel',
             'user' => Auth::user(),
-            'passwords' => DB::table('passwords')->where('user_id', '=', Auth::user()->id)->paginate(10)
+            'passwords' => DB::table('passwords')->where('user_id', '=', Auth::user()->id)->paginate(10),
         ]);
     })->name('admin');
 

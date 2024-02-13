@@ -4,10 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function login()
+    {
+        if (!empty(Auth::user())) {
+            return redirect()->back();
+        }
+
+        if (DB::table('users')->count() == 0) {
+            return redirect()->back();
+        }
+        return view('auth.login', ['title' => 'Password Manager | Login']);
+    }
+
+    public function register()
+    {
+        $row = DB::table('users')->count();
+        if ($row > 0) {
+            return redirect()->route('login');
+        }
+        if (!empty(Auth::user())) {
+            return redirect()->back();
+        }
+        return view('auth.register', ['title' => 'Password Manager | Register']);
+    }
+
     public function proses_register(Request $request)
     {
         $validated = $request->validate([

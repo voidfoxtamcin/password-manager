@@ -5,9 +5,36 @@ namespace App\Http\Controllers;
 use App\Models\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PasswordController extends Controller
 {
+    public function index()
+    {
+        return view('admin.index', [
+            'title' => 'Password Manager | Admin Panel',
+            'user' => Auth::user(),
+            'passwords' => DB::table('passwords')->where('user_id', '=', Auth::user()->id)->paginate(10),
+        ]);
+    }
+
+    public function tambah_view()
+    {
+        return view('admin.tambah', [
+            'title' => 'Password Manager | ' . __('public.addNewPassword'),
+            'user' => Auth::user()
+        ]);
+    }
+
+    public function edit_view($id)
+    {
+        return view('admin.edit', [
+            'password' => Password::all()->where('id', '=', $id)->first(),
+            'title' => 'Password Manager | Edit Password',
+            'user' => Auth::user()
+        ]);
+    }
+
     public function tambah(Request $request)
     {
         $validated = $request->validate([
@@ -56,8 +83,6 @@ class PasswordController extends Controller
         $password->deskripsi_password = $request->post('deskripsi_password');
         $password->username = $request->post('username');
         $password->password = $request->post('password_baru');
-
-        // dd($password);
 
         $password->update();
         return to_route('admin')->with('success', __('validation.custom.success.update', ['attribute' => 'Password']));

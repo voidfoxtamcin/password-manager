@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
+    public function index()
+    {
+        return view('profile.index', [
+            'title' => 'Password Manager | ' . __('public.myProfile'),
+            'user' => Auth::user(),
+        ]);
+    }
+
     public function ubah_password_view()
     {
         return view('profile.ubah_password', [
@@ -35,6 +43,14 @@ class ProfileController extends Controller
         $user->update();
 
         return redirect()->route('profile')->with('success', __('validation.custom.success.update', ['attribute' => 'Password']));
+    }
+
+    public function ubah_profile_view()
+    {
+        return view('profile.edit', [
+            'title' => 'Password Manager | ' . __('public.editProfile'),
+            'user' => Auth::user()
+        ]);
     }
 
     public function ubah_profile(Request $request)

@@ -12,7 +12,6 @@ Route::get('/', function () {
     if (!empty(Auth::user())) {
         return redirect()->back();
     }
-    // dd(Auth::user());
     return view('welcome', ['user' => User::count(['email'])]);
 })->name('welcome');
 

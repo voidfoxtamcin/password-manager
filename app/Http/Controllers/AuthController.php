@@ -48,6 +48,7 @@ class AuthController extends Controller
 			$user->name = $request->post('fname');
 			$user->email = $request->post('email');
 			$user->password = Hash::make($request->post('password'));
+			$user->personal_identification_number = '';
 			$user->save();
 
 			return to_route('welcome');
@@ -74,6 +75,16 @@ class AuthController extends Controller
 				return to_route('login')->with('error', __('validation.custom.error.login'));
 			}
 		}
+	}
+
+	public function proses_simpan_pin(Request $request){
+		$validated = $request->validate([
+			'personal_identification_number' => 'required|numeric|max:6'
+		]);
+
+		$user = \App\Models\User::all()->find(Auth::id());
+		$user->personal_identification_number = $validated['personal_identification_number'];
+		$user->update();
 	}
 
 	public function logout(Request $request)

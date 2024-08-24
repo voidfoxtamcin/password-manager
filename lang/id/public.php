@@ -26,4 +26,6 @@ return [
     'oldPassword' => 'Password Lama',
     'newPassword' => 'Password Baru',
     'options' => 'Opsi',
+
+    'pin_not_set' => 'Anda belum membuat PIN. Silahkan buat terlebih dahulu!'
 ];

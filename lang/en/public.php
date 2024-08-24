@@ -26,4 +26,6 @@ return [
     'oldPassword' => 'Old Password',
     'newPassword' => 'New Password',
     'options' => 'Options',
+
+    'pin_not_set' => 'You have not set your PIN yet. Let set it up first!'
 ];
